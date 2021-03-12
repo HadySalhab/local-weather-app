@@ -2,9 +2,9 @@ import { ComponentFixture, TestBed } from '@angular/core/testing'
 import { By } from '@angular/platform-browser'
 import { injectSpy } from 'angular-unit-test-helper'
 import { of } from 'rxjs'
-import { WeatherService } from '../weather/weather.service'
-import { fakeWeather, WeatherServiceFake } from '../weather/weather.service.fake'
 
+import { WeatherService } from '../weather/weather.service'
+import { fakeWeather } from '../weather/weather.service.fake'
 import { CurrentWeatherComponent } from './current-weather.component'
 
 describe('CurrentWeatherComponent', () => {
@@ -20,7 +20,7 @@ describe('CurrentWeatherComponent', () => {
       declarations: [CurrentWeatherComponent],
       providers: [
         {
-          provide: WeatherService, //CurrentWeatherComponent depends on WeatherService. -> use WeatherServiceFake or weatherServiceSpy
+          provide: WeatherService, // CurrentWeatherComponent depends on WeatherService. -> use WeatherServiceFake or weatherServiceSpy
           // useClass: WeatherServiceFake,
           useValue: weatherServiceSpy,
         },
@@ -37,7 +37,7 @@ describe('CurrentWeatherComponent', () => {
   it('should create', () => {
     // Arrange
     weatherServiceMock.getCurrentWeather.and.returnValue(of())
-    //Act
+    // Act
     fixture.detectChanges()
     // Assert
     expect(component).toBeTruthy()

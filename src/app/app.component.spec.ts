@@ -1,5 +1,6 @@
 import { TestBed } from '@angular/core/testing'
 import { createComponentMock } from 'angular-unit-test-helper'
+
 import { AppComponent } from './app.component'
 
 describe('AppComponent', () => {
